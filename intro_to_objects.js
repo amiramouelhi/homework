@@ -123,7 +123,18 @@ function removeArrays(object) {
     return object
 }
 // 7.Write a function called getFirstElementOfProperty that takes an object and a key and returns the first element in the array at the given key. If the array is empty it should return undefined. If the property at the given key is not an array it should return undefined. If there is no property at the key it should return undefined.
+    function getFirstElementOfProperty(object,key) {
+        if(Array.isArray(object[key])&& object[key]!==[]){
+            return object[key][0]
+        }
+        return undefined
+    }
+// 8.Write a function called getNthElementOfProperty that takes three parameters, an object, a key and a number. It then returns the element located at the index equal to the number parameter from the array at the given key. If the array is empty it should return undefined. If the property at the given key is not an array it should return undefined. If there is no property at the key it should return undefined.
 
+
+
+
+ 
 
 
 
