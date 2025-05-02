@@ -152,6 +152,61 @@ function isPropertyPresent(object,key){
     }
     return state
 }
+// 2.Write a function called getAllKeys that takes an object as a parameter and returns an array of keys of all the properties in the object.
+function getAllKeys(object){
+    return Object.keys(object)
+
+}
+// 3.Write a function called getAllValues that takes an object as a parameter and returns an array of all the values from that object.
+function getAllValues(object){
+    return Object.values(object)
+}
+// 4.Write a function called transformFirstAndLast that takes an array as a parameter and returns an object with one property where: The first element of the array is the key. The last element of the array is the value.
+function transformFirstAndLast(array){
+    var key=array[0]
+    var object={}
+   object[key]=array[array.length-1]
+   return object
+}
+// 5.Write a function called extend that takes two objects and adds all the properties of the second object to the first object if the property’s key does not already exist.
+function extend(object1,object2){
+    for(var key in object2){
+        if(!(key in object1)){
+            object1[key]=object2[key]
+        }
+    }
+    return object1
+}
+// 6.Write a function called countAllCharacters that takes a string as a parameter and returns an object with each unique character as a key and the value is the amount of times it appears in the string. If the string is empty it should return an empty object.
+function countAllCharacters(str){
+    
+    var obj={}
+    if(str.length===0){
+        return obj
+    }
+    for(var i=0;i<str.length;i++){
+        var sum=1
+       for(var j=0;j<str.length;j++){
+        if(j!==i && str[i]===str[j]){
+            sum=sum+1
+        }
+        obj[str[i]]=sum
+       }
+    }
+    return obj
+}
+// 7.Write a function called countWords that takes a string as a parameter and returns an object with each unique word as a key and the value is the amount of times it appears in the string If the string is empty it should return an empty object.
+function countWords(str){
+    var obj={}
+    if(str.length===0){
+        return obj
+    }
+    
+}
+
+
+
+
 
 
 
