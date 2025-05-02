@@ -124,12 +124,35 @@ function removeArrays(object) {
 }
 // 7.Write a function called getFirstElementOfProperty that takes an object and a key and returns the first element in the array at the given key. If the array is empty it should return undefined. If the property at the given key is not an array it should return undefined. If there is no property at the key it should return undefined.
     function getFirstElementOfProperty(object,key) {
-        if(Array.isArray(object[key])&& object[key]!==[]){
+        if(Array.isArray(object[key])&& object[key].length===0){
             return object[key][0]
         }
         return undefined
     }
 // 8.Write a function called getNthElementOfProperty that takes three parameters, an object, a key and a number. It then returns the element located at the index equal to the number parameter from the array at the given key. If the array is empty it should return undefined. If the property at the given key is not an array it should return undefined. If there is no property at the key it should return undefined.
+function getNthElementOfProperty(object, key, number) {
+
+    if (!Array.isArray(object[key])) {
+        return undefined;
+    }
+    if (object[key].length === 0) {
+        return undefined;
+    }
+    return object[key][number];
+}
+// Advanced
+// 1.Write a function called isPropertyPresent that takes two parameters, an object and a key. It then returns true if there is a property at the given key and false otherwise.
+function isPropertyPresent(object,key){
+    var state=false
+    for (var i in object){
+        if(object[i]===key){
+          state=true
+        }
+        state=false
+    }
+    return state
+}
+
 
 
 
