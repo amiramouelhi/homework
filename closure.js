@@ -100,15 +100,26 @@ function randInt(upperBound) {
 
 function makeGame(upperBound) {
     var n= Math.floor(Math.random() * (upperBound + 1));
-
-     return function (n) {
-    if (n > upperBound) {
+   var guess=0
+   function guessMyNumber(num) {
+    if (num > upperBound) {
          return 'Out of bounds! Please try a number between 0 and ' + upperBound + '.';
-    } else if (n === makeGame(upperBound)) {
+    } else if (num === n) {
          return 'You guessed my number!';
          }
-    return 'Nope! That wasn"t it!';
+       guess=guess+1
+    return 'Nope! That wasn"t it!'
+             
     }
+    guessMyNumber.help={
+        giveUp: function(){
+            return guess=0
+        },
+        numGuesses: function(){
+            return guess
+        }
+    }
+   return guessMyNumber
 }
 // 3.  Write a function someEven that, given an array of numbers as an argument, returns true if at least one of the numbers is even.
 
