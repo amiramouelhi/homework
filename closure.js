@@ -84,6 +84,18 @@ reset: function(){
  }
 }}
 // More Practice**
+// 1. Remember the guessing game from the first week? When we wrote the first version of the game, we didn't know about closures and stored all of our state (variables) in the global scope. Rewrite the guessing game to take advantage of closures so that you can create multiple games. Here is some starter code:
+function randInt(upperBound) {
+    var n= Math.floor(Math.random() * (upperBound + 1));
+    
+    return function(num) {
+    if (num > upperBound) {
+         return 'Out of bounds! Please try a number between 0 and ' + upperBound + '.';
+    } else if (num === n) {
+         return 'You guessed my number!';
+         }
+    return 'Nope! That wasn"t it!';
+    }}
 // 2. You will need to define a function makeGame, and at the minimum, you should be able to play the game like this
 
 function makeGame(upperBound) {
