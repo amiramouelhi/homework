@@ -178,7 +178,16 @@ function some(array,predict){
     return false
 }
 // 6. Using some, determine if some of the words in the following string have a length greater than 4:
-
+function some(string) {
+    return function() {
+        for (i =0;i < string.length;i++) {
+            if (4<string.length) {
+                return true 
+            }
+        }
+        return false 
+    }
+}
 
 
 
