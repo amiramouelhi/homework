@@ -189,7 +189,40 @@ function some(string) {
     }
 }
 
-
+// Advanced
+function makeAccount(initial) {
+    var balance = initial;
+    var transactions = [];
+    function addTransaction(type, amount, before, after, status) {
+        transactions.push({
+            type: type,
+            amount: amount,
+            before: before,
+            after: after,
+            status: status,
+            date: new Date()
+        });
+    }
+    return {
+         withdraw: function(amount) {
+         if (balance - amount >= 0) {
+         balance = balance - amount;
+         return 'Here’s your money: $' + amount;
+    }
+        return 'Insufficient funds.';
+},
+         deposit: function(amount) {
+         balance = balance + amount;
+         },
+        checkBalance:function(){
+        return 'Your balance is: $' + balance;
+        },
+        transactionHistory:function(n){
+            for(var i=0;i<n;i++){
+                console.log(transaction[i])
+            }
+        }
+}}
 
 
 
