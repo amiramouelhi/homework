@@ -171,11 +171,23 @@ function productYouCanbuy(array,amount){
 } 
 // 5.Using the customerProducts array of objects, write a function productsQuantity that returns an object with the total quantity of products purchased in each category. The keys of the object should be the category names, and the values should be the total quantity of products purchased in that category.
 function productsQuantity (array){
-
+    
 }
 // 6.Using the customerProducts array of objects, write a function totalPriceByCategory that takes in a category name and returns an object with the total quantity and cost of products purchased in that category. The object should have two keys, totalQuantity and totalCost, and the values should be the corresponding total quantity and cost of products purchased in the specified category.
 function totalPriceByCategory(category,array){
-
+   var obj={}
+   var arr1=filter(array,function(element,index){
+       return element[category]!==undefined
+   })
+   var sum=reduce (arr1,function(total,element){
+     return total=total+element.quantity
+   },0)
+  var cost=reduce(arr1,function(result,element){
+    return result=result+element.price
+  })
+   obj.totalQuantity=sum
+   obj.totalCost=cost
+   return obj
 }
 /************************8*****************************/
 // Write a function listNames that takes an array of users and returns an array of their names in alphabetical order.
@@ -194,7 +206,9 @@ function filterByGender(array,gender){
 // Write a function groupByAge that takes an array of users and groups them by their age. The function should return an object where each key is an age and the value is an array of users with that age.
 function grouByAge(array){
   var result={}
-     
+   var ages=map(array,function(element,index){
+    return element.age
+   })   
 }
 // Write a function mostCommonHobby that takes an array of users and returns the most common hobby among them.
 function mostCommonHobby (array){
@@ -203,14 +217,4 @@ function mostCommonHobby (array){
       return a=a+b
     }, 0) 
    }
-}
-
-
-
-
- 
-
-
-
-
- 
+} 
